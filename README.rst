@@ -1,2 +1,4 @@
-# edc-randomization
+edc-randomization
+=================
+
 Randomization objects for clinicedc projects
