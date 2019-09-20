@@ -31,6 +31,7 @@ DEFAULT_SETTINGS = DefaultTestSettings(
         'edc_device.apps.AppConfig',
         'edc_identifier.apps.AppConfig',
         'edc_protocol.apps.AppConfig',
+        'edc_sites.apps.AppConfig',
         'edc_randomization.apps.AppConfig',
     ],
     add_dashboard_middleware=True,
