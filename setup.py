@@ -39,7 +39,6 @@ setup(
         'django-collect-offline',
         'django-collect-offline-files',
         'django-crypto-fields',
-        'edc-base',
         'edc-model-admin',
         'edc-registration',
         'tqdm',
