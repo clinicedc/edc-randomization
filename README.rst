@@ -34,14 +34,6 @@ The important values are:
 
 The default ``randomizer`` is loaded at startup, uses the ``RandomizationList`` model and an allocation map of "Active=1" vs "Placebo=2".
 
-
-Without declaring a new randomizer class, you can change the allocation arms from "Active" vs "Placebo" to something custom. To do so, update settings with::
-
-        EDC_RANDOMIZATION_ASSIGNMENT_MAP=INTERVENTION=1,CONTROL=2  # for example
-
-With the above, your CSV file will have 1's and 2's in the allocation column and mapped to INTERVENTION, CONTROL respectively.
-    
-
 Creating a custom randomizer
 ++++++++++++++++++++++++++++
 
