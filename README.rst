@@ -1,4 +1,4 @@
-|pypi| |travis| |codecov| |downloads|
+|pypi| |actions| |codecov| |downloads|
 
 
 edc-randomization
@@ -37,7 +37,7 @@ The default ``randomizer`` is loaded at startup, uses the ``RandomizationList`` 
 Creating a custom randomizer
 ++++++++++++++++++++++++++++
 
-Unless you explicitly tell it not to, the ``site_randomizer`` will load the default ``randomizer``. This may be OK if you have multiple randomizers within the same protocol where the default is one of them. If not, you can prevent the "default" from loading by updating ``settings`` with:: 
+Unless you explicitly tell it not to, the ``site_randomizer`` will load the default ``randomizer``. This may be OK if you have multiple randomizers within the same protocol where the default is one of them. If not, you can prevent the "default" from loading by updating ``settings`` with::
 
     EDC_RANDOMIZATION_REGISTER_DEFAULT_RANDOMIZER=False
 
@@ -48,8 +48,8 @@ To create a custom ``randomizer`` class, declare a subclass of ``Randomizer`` in
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-randomization.svg
     :target: https://pypi.python.org/pypi/edc-randomization
 
-.. |travis| image:: https://travis-ci.com/clinicedc/edc-randomization.svg?branch=develop
-    :target: https://travis-ci.com/clinicedc/edc-randomization
+.. |actions| image:: https://github.com/clinicedc/edc-randomization/workflows/build/badge.svg?branch=develop
+  :target: https://github.com/clinicedc/edc-randomization/actions?query=workflow:build
 
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-randomization/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-randomization
