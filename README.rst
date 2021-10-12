@@ -30,7 +30,7 @@ The important values are:
 
 * sid: unique sequence
 * site: Site name
-* allocation: integer repreasentation of arms (e.g. 1, 2)
+* allocation: integer repreaentation of arms (e.g. 1, 2)
 
 The default ``randomizer`` is loaded at startup, uses the ``RandomizationList`` model and an allocation map of "Active=1" vs "Placebo=2".
 
