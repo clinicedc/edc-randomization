@@ -22,6 +22,7 @@ setup(
     include_package_data=True,
     url="http://github.com/clinicedc/edc-randomization",
     license="GPL license, see LICENSE",
+    long_description_content_type="text/x-rst",
     description="Randomization classes for clinicedc/edc projects.",
     long_description=README,
     zip_safe=False,
