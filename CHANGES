@@ -1,0 +1,4 @@
+0.3.33
+------
+  - refactor randomizer, list importer and list verifier
+  - add utils to query randolist by subject
