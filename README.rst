@@ -8,10 +8,12 @@ Randomization objects for clinicedc projects
 Overview
 ++++++++
 
-The ``Randomizer`` class can emulate the randomization of a clincial trial participant  in
-realtime. This module does not actually `randomize` in realtime. Instead, a CSV file is
-prepared by the statistician in advance that lists the prospective randomization slots in
-order. The ``Randomizer`` class picks from that list.
+The ``Randomizer`` class emulates the randomization of a clincial trial participant in
+realtime. This module doesn't actually `randomize` in realtime. Instead, a CSV file is
+prepared in advance by the statistician. This CSV file lists the order in which subjects 
+are to be randomized. The ``Randomizer`` class initially imports the entire list in order 
+into a ``model``. When a subject is to be randomized, the ``Randomizer`` class selects 
+the next available row from the model.
 
 A very basic ``randomization_list.csv`` prepared in advance might look like this::
 
@@ -28,7 +30,7 @@ For large multisite trials this may be thousands of lines ordered using some typ
 randomization.
 
 This module will import (only once) all rows from the CSV file into a model. The ``Randomizer``
-class selects and allocates in order by site_name one row per participant.
+class selects and allocates in order by site_name one row per participant from the model.
 
 .. code-block:: python
 
@@ -38,8 +40,8 @@ class selects and allocates in order by site_name one row per participant.
     site_randomizers.randomize("default", subject_identifier=subject_identifier, ...)
 
 Usually, the ``Randomizer`` class is instantiated in a ``signal`` once the subject's
-eligibility has been confirmed and the subject's informed consent has been submitted. A
-`signal` attached to the subject's informed consent is a good place assuming the sequence
+eligibility is confirmed and the subject's informed consent is submitted. A
+`signal` attached to the subject's informed consent is a good place to do this assuming the sequence
 of events are 1) pass eligibility criteria, 2) complete informed consent, 3) `randomize` and
 issue study identifier 4) start baseline visit.
 
@@ -66,11 +68,11 @@ issue study identifier 4) start baseline visit.
                 ...
 
 
-Registereing a randomizer
-+++++++++++++++++++++++++
+Registering a randomizer
+++++++++++++++++++++++++
 The default ``Randomizer`` class is ``edc_randomization.randomizer.Randomizer``. Unless you
 indicate otherwise, it will be automatically registered with the site controller,
-``site_randomizers`` with the name ``default``. It is recommended to access the ``Randomizer``
+``site_randomizers`` with the name ``default``. It is recommended you access the ``Randomizer``
 class through ``site_randomizers`` instead of directly importing.
 
 .. code-block:: python
@@ -81,7 +83,7 @@ class through ``site_randomizers`` instead of directly importing.
 Customizing the default randomizer
 ++++++++++++++++++++++++++++++++++
 
-Some attributes of the default ``Randomizer`` class can be customized using ``settings``:
+Some attributes of the default ``Randomizer`` class can be customized using ``settings`` attributes:
 
 .. code-block:: python
 
@@ -98,11 +100,12 @@ Some attributes of the default ``Randomizer`` class can be customized using ``se
 Creating a custom randomizer
 ++++++++++++++++++++++++++++
 
-If you need to customize further, create a custom ``Randomizer`` class. In the example below,
-``gender`` is added for a trial stratified by ``gender``.
+If you need to customize further, create a custom ``Randomizer`` class. 
 
-Custom Randomizer classes live in ``randomizers.py`` in the root of your app. The
-site_randomizers will ``autodiscover`` them.
+In the example below, ``gender`` is added for a trial stratified by ``gender``.
+
+Custom ``Randomizer`` classes live in ``randomizers.py`` in the root of your app. The
+``site_randomizers`` controller will ``autodiscover`` them.
 
 .. code-block:: python
 
