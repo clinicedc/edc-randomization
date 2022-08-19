@@ -11,7 +11,7 @@ Overview
 The ``Randomizer`` class can emulate the randomization of a clincial trial participant  in
 realtime. This module does not actually `randomize` in realtime. Instead, a CSV file is
 prepared by the statistician in advance that lists the prospective randomization slots in
-order.
+order. The ``Randomizer`` class picks from that list.
 
 A very basic ``randomization_list.csv`` prepared in advance might look like this::
 
@@ -163,13 +163,20 @@ A ``Randomizer`` class will call ``import_list`` when it is instantiated
 for the first time. If you want to load the CSV file manually,
 import the ``Randomizer`` class and call ``import_list()``.
 
-The ``Randomizer`` class has all the attributes required to find the
-file and know which model class to populate.
 
-..code-block:: python
+.. code-block:: python
 
-    randomizer_cls = site_randomizers.get("default")
-    randomizer_cls.import_list()
+   >>> randomizer_cls = site_randomizers.get("my_randomizer")
+   >>> randomizer_cls.import_list()
+   Import CSV data
+     Randomizer:
+       -  Name: my_randomizer
+       -  Assignments: {'active': 1, 'placebo': 2}
+       -  Model: edc_randomization.myrandomizationlist
+       -  Path: /home/me/.etc/randomization_list.csv
+       -  Imported 5 SIDs for randomizer `my_randomizer` into model `edc_randomization.myrandomizationlist`
+          from /home/me/.etc/randomization_list.csv.
+       -  Verified OK.    
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-randomization.svg
     :target: https://pypi.python.org/pypi/edc-randomization
