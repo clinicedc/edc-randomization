@@ -15,14 +15,13 @@ The default ``randomizer`` class will refer to and update the randomization list
 
 Importing from CSV
 ++++++++++++++++++
-You can import data from CSV into the ``RandomizationList`` (or your custom model) using the ``import_randomization_list`` management command::
+Use the ``randomizer`` class to import from your CSV file. The class has all the attributes required to find the file and know which model class
+to populate.
 
-    python manage.py import_randomization_list
+..code-block:: python
 
-    --or--
-
-    python manage.py import_randomization_list --name=my_custom_randomizer_name
-
+    randomizer_cls = site_randomizers.get("default")
+    randomizer_cls.import_list()
 
 Customizing the default randomizer
 ++++++++++++++++++++++++++++++++++
@@ -43,6 +42,22 @@ Unless you explicitly tell it not to, the ``site_randomizer`` will load the defa
 
 To create a custom ``randomizer`` class, declare a subclass of ``Randomizer`` in file ``randomizers.py`` at the root of your app. On startup the ``site_randomizer`` will pick it up. See the ``Randomizer`` class.
 
+..code-block:: python
+    
+    # randomizers.py
+    
+    class MyRandomizer(Randomizer):
+        name = "my_randomizer"
+        model = "edc_randomization.myrandomizationlist"
+        randomization_list_path = tmpdir
+        assignment_map = {"Intervention": 1, "Control": 0}
+        assignment_description_map = {"Intervention": "Fluconazole plus flucytosine", "Control": "Fluconazole"}
+
+
+    class MyOtherRandomizer(Randomizer):
+        name = "my_other_randomizer"
+        model = "edc_randomization.myotherrandomizationlist"
+        randomization_list_path = tmpdir
 
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-randomization.svg
