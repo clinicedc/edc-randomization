@@ -65,7 +65,7 @@ commands =
     pip install -U pip
     pip --version
     pip freeze
-    coverage run -a runtests.py --failfast  --tag=xxx
+    coverage run -a runtests.py
     coverage report
 
 [testenv:lint]
