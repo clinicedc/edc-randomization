@@ -66,8 +66,8 @@ issue study identifier 4) start baseline visit.
                 ...
 
 
-Registereing a randomizer
-+++++++++++++++++++++++++
+Registering a randomizer
+++++++++++++++++++++++++
 The default ``Randomizer`` class is ``edc_randomization.randomizer.Randomizer``. Unless you
 indicate otherwise, it will be automatically registered with the site controller,
 ``site_randomizers`` with the name ``default``. It is recommended to access the ``Randomizer``
