@@ -11,7 +11,7 @@ Overview
 The ``Randomizer`` class can emulate the randomization of a clincial trial participant  in
 realtime. This module does not actually `randomize` in realtime. Instead, a CSV file is
 prepared by the statistician in advance that lists the prospective randomization slots in
-order.
+order. The ``Randomizer`` class picks from that list.
 
 A very basic ``randomization_list.csv`` prepared in advance might look like this::
 
