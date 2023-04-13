@@ -10,9 +10,9 @@ Overview
 
 The ``Randomizer`` class emulates the randomization of a clincial trial participant in
 realtime. This module doesn't actually `randomize` in realtime. Instead, a CSV file is
-prepared in advance by the statistician. This CSV file lists the order in which subjects 
-are to be randomized. The ``Randomizer`` class initially imports the entire list in order 
-into a ``model``. When a subject is to be randomized, the ``Randomizer`` class selects 
+prepared in advance by the statistician. This CSV file lists the order in which subjects
+are to be randomized. The ``Randomizer`` class initially imports the entire list in order
+into a ``model``. When a subject is to be randomized, the ``Randomizer`` class selects
 the next available row from the model.
 
 A very basic ``randomization_list.csv`` prepared in advance might look like this::
@@ -100,7 +100,7 @@ Some attributes of the default ``Randomizer`` class can be customized using ``se
 Creating a custom randomizer
 ++++++++++++++++++++++++++++
 
-If you need to customize further, create a custom ``Randomizer`` class. 
+If you need to customize further, create a custom ``Randomizer`` class.
 
 In the example below, ``gender`` is added for a trial stratified by ``gender``.
 
@@ -179,7 +179,23 @@ import the ``Randomizer`` class and call ``import_list()``.
        -  Path: /home/me/.etc/randomization_list.csv
        -  Imported 5 SIDs for randomizer `my_randomizer` into model `edc_randomization.myrandomizationlist`
           from /home/me/.etc/randomization_list.csv.
-       -  Verified OK.    
+       -  Verified OK.
+
+
+Manually Export to CSV
+++++++++++++++++++++++
+
+.. code-block:: python
+
+    >>> from edc_randomization.utils import export_randomization_list
+    >>> export_randomization_list(randomizer_name="default",path="~/", username="erikvw")
+
+If the user does not have permissions to view the randomizationlist table, a ``RandomizationListExporterError`` will be raised:
+
+.. code-block:: python
+
+    RandomizationListExporterError: User `erikvw` does not have permission to view 'edc_randomization.randomizationlist'
+
 
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-randomization.svg
     :target: https://pypi.python.org/pypi/edc-randomization
