@@ -200,8 +200,8 @@ If the user does not have permissions to view the randomizationlist table, a ``R
 .. |pypi| image:: https://img.shields.io/pypi/v/edc-randomization.svg
     :target: https://pypi.python.org/pypi/edc-randomization
 
-.. |actions| image:: https://github.com/clinicedc/edc-randomization/workflows/build/badge.svg?branch=develop
-  :target: https://github.com/clinicedc/edc-randomization/actions?query=workflow:build
+.. |actions| image:: https://github.com/clinicedc/edc-randomization/actions/workflows/build.yml/badge.svg
+  :target: https://github.com/clinicedc/edc-randomization/actions/workflows/build.yml
 
 .. |codecov| image:: https://codecov.io/gh/clinicedc/edc-randomization/branch/develop/graph/badge.svg
   :target: https://codecov.io/gh/clinicedc/edc-randomization
