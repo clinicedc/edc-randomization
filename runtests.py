@@ -58,7 +58,7 @@ project_settings = DefaultTestSettings(
         "edc_visit_tracking.apps.AppConfig",
         "edc_appconfig.apps.AppConfig",
     ],
-    add_dashboard_middleware=True,
+    add_dashboard_middleware=False,
 ).settings
 
 
