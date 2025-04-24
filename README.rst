@@ -181,6 +181,25 @@ import the ``Randomizer`` class and call ``import_list()``.
           from /home/me/.etc/randomization_list.csv.
        -  Verified OK.
 
+Manually Importing additional slots added to the original CSV
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Add additional records to the end of the CSV file referred to by the ``randomizer_cls`` then call ``import_list(add=True)``.
+
+.. code-block:: python
+
+   >>> randomizer_cls = site_randomizers.get("my_randomizer")
+   >>> randomizer_cls.import_list(add=True)
+   Import CSV data
+     Randomizer:
+       -  Name: my_randomizer
+       -  Assignments: {'active': 1, 'placebo': 2}
+       -  Model: edc_randomization.myrandomizationlist
+       -  Path: /home/me/.etc/randomization_list.csv
+       -  Imported 5 SIDs for randomizer `my_randomizer` into model `edc_randomization.myrandomizationlist`
+          from /home/me/.etc/randomization_list.csv.
+       -  Verified OK.
+
+
 
 Manually Export to CSV
 ++++++++++++++++++++++
